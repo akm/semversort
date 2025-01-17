@@ -21,7 +21,7 @@ go install github.com/akm/semversort@latest
 sorts versions you pass to it over a pipe.
 
 ```
-Usage of ./semversort:
+Usage of semversort:
   -constraint string
         Filter versions by constraints if given
   -ignore
@@ -41,27 +41,27 @@ Usage of ./semversort:
 examples:
 
 ```
-[~]> echo -e "1.2.3\n4.5.6\n2.9.100+woot\n0.3.1"
+$ echo -e "1.2.3\n4.5.6\n2.9.100+woot\n0.3.1"
 1.2.3
 4.5.6
 2.9.100+woot
 0.3.1
-[~]> echo -e "1.2.3\n4.5.6\n2.9.100+woot\n0.3.1" | ./semversort
+$ echo -e "1.2.3\n4.5.6\n2.9.100+woot\n0.3.1" | semversort
 0.3.1
 1.2.3
 2.9.100+woot
 4.5.6
-[~]> echo -e "1.2.3\n4.5.6\n2.9.100+woot\n0.3.1" | ./semversort -constraint='>=2.0.0'
+$ echo -e "1.2.3\n4.5.6\n2.9.100+woot\n0.3.1" | semversort -constraint='>=2.0.0'
 2.9.100+woot
 4.5.6
-[~]> echo -e "1.2.3\n4.5.6\n2.9.100+woot\n0.3.1" | ./semversort -reverse
+$ echo -e "1.2.3\n4.5.6\n2.9.100+woot\n0.3.1" | semversort -reverse
 4.5.6
 2.9.100+woot
 1.2.3
 0.3.1
-[~]> echo -e "1.2.3\n4.5.6\n2.9.100+woot\n0.3.1" | ./semversort -greatest
+$ echo -e "1.2.3\n4.5.6\n2.9.100+woot\n0.3.1" | semversort -greatest
 4.5.6
-[~]> echo -e "20.3.1\n1.2.3\n4.5.6\n20241231t123456\n2.9.100+woot\n0.3.1" | ./semversort --ignore --quiet
+$ echo -e "20.3.1\n1.2.3\n4.5.6\n20241231t123456\n2.9.100+woot\n0.3.1" | semversort --ignore --quiet
 0.3.1
 1.2.3
 2.9.100+woot
